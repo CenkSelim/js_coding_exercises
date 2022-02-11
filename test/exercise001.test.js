@@ -70,7 +70,7 @@ describe("getSalePrice", () => {
   });
 });
 
-describe("getMiddleCharacter", () => {
+describe.only("getMiddleCharacter", () => {
   test("returns the middle character from a string of odd length", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
