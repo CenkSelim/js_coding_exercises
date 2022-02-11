@@ -24,14 +24,14 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   let startPosition = (str.length / 2); // start position halfway point
-  let endPosition = startPosition + 1; // end position 1 more if 
-  if  ((str.length % 2) === 0 ) startPosition--;   // even number of characters so two characters in the middle
+  let endPosition = startPosition + 1; // end position 1 more
+  if  ((str.length % 2) === 0 ) startPosition--; // even number of characters so two characters in the middle
   return str.substring(startPosition, endPosition);
 }
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  return word.split('').reverse().join('');
 }
 
 function reverseAllWords(words) {
