@@ -115,7 +115,7 @@ describe("hasMPostCode", () => {
         city: "Manchester",
         postCode: "M16 8DR"
       }
-    };
+    };    
     expect(hasMPostCode(person)).toBe(true);
   });
 
