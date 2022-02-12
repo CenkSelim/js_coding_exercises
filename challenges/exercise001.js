@@ -24,9 +24,11 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   let startPosition = (str.length / 2); // start position halfway point
-  let endPosition = startPosition + 1; // end position 1 more
-  if  ((str.length % 2) === 0 ) startPosition--; // even number of characters so two characters in the middle
-  return str.substring(startPosition, endPosition);
+  if  ((str.length % 2) === 0 ) {
+    return str.substring(startPosition - 1, (startPosition + 1)); // even needs two charater
+  } else {
+    return str.substring(startPosition, (startPosition + 1));
+  } 
 }
 
 function reverseWord(word) {
