@@ -24,7 +24,7 @@ describe("getFillings", () => {
   });
 });
 
-describe.only("isFromManchester", () => {
+describe("isFromManchester", () => {
   test("returns true if the person is from Manchester", () => {
     const person = {
       name: "Mohammed",
