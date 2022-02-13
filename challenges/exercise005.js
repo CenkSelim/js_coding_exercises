@@ -1,17 +1,26 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  const positionOfNumber = (nums.findIndex(num => num === n)); 
+  if (positionOfNumber < nums.length - 1 && positionOfNumber !== -1) {
+    return nums[positionOfNumber + 1];
+  }else {
+    return null;
+  }
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  const frequencies = {1:0,0:0};
+  for ( let i=0; i < str.length ; i++){
+    frequencies[str[i]] += 1;
+  }
+  return frequencies;
 };
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  return parseInt(n.toString().split('').reverse().join(''));
 };
 
 const sumArrays = arrs => {
