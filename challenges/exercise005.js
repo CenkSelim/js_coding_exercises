@@ -25,12 +25,18 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+
+  const arrsSums = arrs.map(function(item) {
+    return item.reduce((a, b) => a + b, 0);
+  });
+  return arrsSums.reduce((a, b) => a + b, 0);
 };
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  const arrShifted = [...arr];
+  if (arr.length > 1)[arrShifted[0], arrShifted[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+  return arrShifted;
 };
 
 const findNeedle = (haystack, searchTerm) => {
