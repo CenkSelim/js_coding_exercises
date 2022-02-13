@@ -1,6 +1,8 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+  let numsCopy = [...nums]; // so as not to update original
+  numsCopy.forEach((item, index) => numsCopy[index] = item * item );
+  return numsCopy;
 }
 
 function camelCaseWords(words) {
