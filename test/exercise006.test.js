@@ -1,5 +1,6 @@
 const {
-  sumMultiples
+  sumMultiples,
+  isValidDNA
 } = require("../challenges/exercise006");
 
 
@@ -15,5 +16,18 @@ describe("sumMultiples", () => {
         expect(result).toBe(expected);
         expect(sumMultiples([5, 3, 7, 8, 1, 10])).toBe(18);
         expect(sumMultiples([])).toBe(0);
+    });
+});
+
+describe("isValidDNA", () => {
+    test("it throws an error if not passed a string", () => {
+        expect(() => {
+            isValidDNA();
+        }).toThrow("str is required");
+    });
+    test("returns true if the string contains characters C, G, T or A only", () => {
+        expect(isValidDNA("AGCT")).toBe(true);
+        expect(isValidDNA("AGCTDDAA")).toBe(false);
+        expect(isValidDNA("")).toBe(false);
     });
 });

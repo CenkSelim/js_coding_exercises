@@ -22,6 +22,9 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (str === null || str === '') return false;
+  const otherCharacters = str.toLowerCase().match(/[^agtc]/g);
+  return otherCharacters === null;
 };
 
 /**
