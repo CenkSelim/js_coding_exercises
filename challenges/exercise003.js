@@ -5,8 +5,9 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  words.forEach((item, index) => words[index] = item.substring(0,1).toUpperCase() + item.substring(1)); 
-  return words.join("").substring(0,1).toLowerCase() + words.join("").substring(1);
+  let wordsCopy = [...words]; // so as not to update original
+  wordsCopy.forEach((item, index) => wordsCopy[index] = item.substring(0,1).toUpperCase() + item.substring(1)); 
+  return wordsCopy.join("").substring(0,1).toLowerCase() + wordsCopy.join("").substring(1);
 }
 
 function getTotalSubjects(people) {
