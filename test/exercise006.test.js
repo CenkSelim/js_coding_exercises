@@ -13,6 +13,7 @@ describe("sumMultiples", () => {
         const result = sumMultiples([1,3,5]);
         const expected = 8;
         expect(result).toBe(expected);
-        expect(sumMultiples([5, 3, 7, 8, 1, 10], 7)).toBe(18);
+        expect(sumMultiples([5, 3, 7, 8, 1, 10])).toBe(18);
+        expect(sumMultiples([])).toBe(0);
     });
 });
