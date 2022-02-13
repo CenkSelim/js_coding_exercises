@@ -44,7 +44,7 @@ function getCities(users) {
   const cities = [];
 
   for (let i = 0; i < users.length; i++) {
-    if (users[i].data.city.displayName) cities.push(users[i].data.city.displayName);
+    cities.push(users[i].data.city.displayName);
   }
   return cities;
 }
