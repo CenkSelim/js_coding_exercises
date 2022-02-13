@@ -21,7 +21,12 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  const verbs = [];
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].substring(0,3).toLowerCase() === "To ".toLowerCase()) verbs.push(words[i]);
+  }
+  return verbs;
 }
 
 function getIntegers(nums) {
