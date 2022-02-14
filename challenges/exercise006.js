@@ -65,6 +65,10 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  const sqareRootOfN = Math.sqrt(n);
+  for(let i = 2; i <= sqareRootOfN; i++)
+        if(n % i === 0) return false; 
+  return n > 1;
 };
 
 /**

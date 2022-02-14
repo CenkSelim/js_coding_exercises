@@ -60,4 +60,11 @@ describe("isItPrime", () => {
             isItPrime();
         }).toThrow("n is required");
     });
+    test("it return true if a prime number or else false", () => {
+        expect(isItPrime(1)).toBe(false);
+        expect(isItPrime(2)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(71)).toBe(true);
+        expect(isItPrime(9)).toBe(false);
+    });
 });
