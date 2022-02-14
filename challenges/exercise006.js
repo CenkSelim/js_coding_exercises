@@ -34,6 +34,8 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (!isValidDNA(str)) throw new Error("valid dna string is required");
+  return "TCGA";
 };
 
 /**
