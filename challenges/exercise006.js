@@ -55,7 +55,7 @@ const getComplementaryDNA = str => {
     }
   }
 
-  return complimentaryStr.toUpperCase();
+  return complimentaryStr;
 };
 
 /**

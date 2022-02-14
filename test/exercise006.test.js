@@ -48,7 +48,7 @@ describe("getComplementaryDNA", () => {
     });
     test("returns return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of ACTG would have a complementary DNA string of TGAC", () => {
         expect(getComplementaryDNA("AGCT")).toBe("TCGA");
-        expect(getComplementaryDNA("AGCT")).toBe("TCGA");
+        expect(getComplementaryDNA("TTAC")).toBe("AATG");
         
     });
 });
