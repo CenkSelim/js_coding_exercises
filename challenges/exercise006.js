@@ -23,7 +23,7 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (str === null || str === '') return false;
-  const otherCharacters = str.toLowerCase().match(/[^agtc]/g);
+  const otherCharacters = str.match(/[^AGTC]/g);
   return otherCharacters === null;
 };
 
@@ -36,19 +36,19 @@ const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (!isValidDNA(str)) throw new Error("valid dna string is required");
   let complimentaryStr = "";
-  for (let c of str.toLowerCase()) {
+  for (let c of str) {
     switch (c) {
-      case "a":
-        complimentaryStr += "t";
+      case "A":
+        complimentaryStr += "T";
         break;
-       case "t":
-        complimentaryStr += "a";
+       case "T":
+        complimentaryStr += "A";
         break;
-       case "c":
-        complimentaryStr += "g";
+       case "C":
+        complimentaryStr += "G";
         break;
-       case "g":
-        complimentaryStr += "c";
+       case "G":
+        complimentaryStr += "C";
         break;   
       default:
         break;
