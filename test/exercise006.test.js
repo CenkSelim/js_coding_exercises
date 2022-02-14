@@ -1,7 +1,8 @@
 const {
   sumMultiples,
   isValidDNA,
-  getComplementaryDNA
+  getComplementaryDNA,
+  isItPrime
 } = require("../challenges/exercise006");
 
 
@@ -50,5 +51,13 @@ describe("getComplementaryDNA", () => {
         expect(getComplementaryDNA("AGCT")).toBe("TCGA");
         expect(getComplementaryDNA("TTAC")).toBe("AATG");
         
+    });
+});
+
+describe("isItPrime", () => {
+    test("it throws an error if not passed a number", () => {
+        expect(() => {
+            isItPrime();
+        }).toThrow("n is required");
     });
 });
