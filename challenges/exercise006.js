@@ -35,7 +35,27 @@ const isValidDNA = str => {
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (!isValidDNA(str)) throw new Error("valid dna string is required");
-  return "TCGA";
+  let complimentaryStr = "";
+  for (let c of str.toLowerCase()) {
+    switch (c) {
+      case "a":
+        complimentaryStr += "t";
+        break;
+       case "t":
+        complimentaryStr += "a";
+        break;
+       case "c":
+        complimentaryStr += "g";
+        break;
+       case "g":
+        complimentaryStr += "c";
+        break;   
+      default:
+        break;
+    }
+  }
+
+  return complimentaryStr.toUpperCase();
 };
 
 /**
