@@ -1,5 +1,6 @@
 const {
-    sumDigits
+    sumDigits,
+    createRange
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -12,5 +13,15 @@ describe("sumDigits", () => {
         expect(sumDigits(222222)).toBe(12);
         expect(sumDigits(9876543210)).toBe(45);
     });
+    
+});
+
+describe("createRange", () => {
+   test("it throws an error if not passed a number", () => {
+        expect(() => createRange()).toThrow("start is required");
+    });
+    test("it throws an error if not passed a number", () => {
+        expect(() => createRange(2)).toThrow("end is required");
+    }); 
     
 });
