@@ -68,7 +68,7 @@ const getScreentimeAlertList = (users, date) => {
       if(screenTimeLog.date === date){
         let totalScreenTime=0;
         Object.values(screenTimeLog.usage).forEach(val => totalScreenTime += val);
-        if(totalScreenTime > MAX_SCREEN_TIME) {alertUsers.push(user.name);}
+        if(totalScreenTime > MAX_SCREEN_TIME) {alertUsers.push(user.username);}
       }  
     });       
   });

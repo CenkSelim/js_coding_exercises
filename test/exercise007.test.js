@@ -62,8 +62,7 @@ describe("getScreentimeAlertList", () => {
                                         ]
                             },
                     ];
-        expect(getScreentimeAlertList(users,"2019-05-02")).toEqual(["Beth Smith"]);
+        expect(getScreentimeAlertList(users,"2019-05-02")).toEqual(["beth_1234"]);
         expect(getScreentimeAlertList(users,"2019-06-14")).toEqual([]);
-    });
-    
+    });  
 });
