@@ -2,7 +2,8 @@ const {
   sumMultiples,
   isValidDNA,
   getComplementaryDNA,
-  isItPrime
+  isItPrime,
+  createMatrix
 } = require("../challenges/exercise006");
 
 
@@ -23,9 +24,7 @@ describe("sumMultiples", () => {
 
 describe("isValidDNA", () => {
     test("it throws an error if not passed a string", () => {
-        expect(() => {
-            isValidDNA();
-        }).toThrow("str is required");
+        expect(() => isValidDNA()).toThrow("str is required");
     });
     test("returns true if the string contains characters C, G, T or A only", () => {
         expect(isValidDNA("AGCT")).toBe(true);
@@ -38,14 +37,10 @@ describe("isValidDNA", () => {
 });
 describe("getComplementaryDNA", () => {
     test("it throws an error if not passed a string", () => {
-        expect(() => {
-            getComplementaryDNA();
-        }).toThrow("str is required");
+        expect(() => getComplementaryDNA()).toThrow("str is required");
     });
     test("it throws an error if not passed a valid dna string", () => {
-        expect(() => {
-            getComplementaryDNA("SCALA");
-        }).toThrow("valid dna string is required");
+        expect(() => getComplementaryDNA("SCALA")).toThrow("valid dna string is required");
     });
     test("returns return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of ACTG would have a complementary DNA string of TGAC", () => {
         expect(getComplementaryDNA("AGCT")).toBe("TCGA");
@@ -56,9 +51,7 @@ describe("getComplementaryDNA", () => {
 
 describe("isItPrime", () => {
     test("it throws an error if not passed a number", () => {
-        expect(() => {
-            isItPrime();
-        }).toThrow("n is required");
+        expect(() => isItPrime()).toThrow("n is required");
     });
     test("it return true if a prime number or else false", () => {
         expect(isItPrime(1)).toBe(false);
@@ -66,5 +59,19 @@ describe("isItPrime", () => {
         expect(isItPrime(7)).toBe(true);
         expect(isItPrime(71)).toBe(true);
         expect(isItPrime(9)).toBe(false);
+    });
+});
+
+describe("createMatrix", () => {
+    test("it throws an error if not passed a number", () => {
+        expect(() => createMatrix()).toThrow("n is required");
+    });
+    test("it throws an error if not passed a fill", () => {
+        expect(() =>  createMatrix(1)).toThrow("fill is required");
+    });
+    test("it return true if a matrix of fill n x n", () => {
+        expect(createMatrix(1,"one")).toStrictEqual([["one"]]);
+        expect(createMatrix(2,"two")).toStrictEqual([["two","two"],["two","two"]]);
+        expect(createMatrix(3,"three")).toStrictEqual([["three","three","three"],["three","three","three"],["three","three","three"]]);
     });
 });
