@@ -56,10 +56,23 @@ const createRange = (start, end, step=1) => {
  * The date will be provided in the format "2019-05-04" (YYYY-MM-DD)
  * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
+ * @param {String} date
  */
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  const MAX_SCREEN_TIME =100;
+  const alertUsers =[];
+  users.forEach( user => {
+    user.screenTime.forEach( screenTimeLog => {
+      if(screenTimeLog.date === date){
+        let totalScreenTime=0;
+        Object.values(screenTimeLog.usage).forEach(val => totalScreenTime += val);
+        if(totalScreenTime > MAX_SCREEN_TIME) {alertUsers.push(user.name);}
+      }  
+    });       
+  });
+  return alertUsers;
 };
 
 /**
