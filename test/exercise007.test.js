@@ -1,7 +1,8 @@
 const {
     sumDigits,
     createRange,
-    getScreentimeAlertList
+    getScreentimeAlertList,
+    hexToRGB
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -67,4 +68,11 @@ describe("getScreentimeAlertList", () => {
         expect(getScreentimeAlertList(users,"2019-06-14")).toEqual([]);
         expect(getScreentimeAlertList(users,"2019-05-04")).toEqual(["beth_1234","sam_j_1989"]);
     });  
+});
+
+describe("", () => {
+    test("it throws an ehexToRGBrror if not passed a hexStr", () => {
+        expect(() => hexToRGB()).toThrow("hexStr is required");
+    });
+    
 });
