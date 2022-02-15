@@ -84,5 +84,31 @@ describe("areWeCovered", () => {
     test("it throws an error if not passed day", () => {
         expect(() => areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Friday"]}])).toThrow("day is required");
     });
+    test("it return false if no staff present", () => {
+        expect(areWeCovered([],"Monday")).toBe(false);
+        expect(areWeCovered([],"Tuesday")).toBe(false);
+        expect(areWeCovered([],"Wednesday")).toBe(false);
+        expect(areWeCovered([],"Thursday")).toBe(false);
+        expect(areWeCovered([],"Friday")).toBe(false);
+        expect(areWeCovered([],"Saturday")).toBe(false);
+        expect(areWeCovered([],"Sunday")).toBe(false);
+    }); 
+    test("return false if staff present < 3", () => {
+        const staff = [
+            { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+            { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+            { name: "Juno", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+            { name: "Rob", rota: ["Saturday", "Sunday", "Monday","Thursday", "Tuesday", "Wednesday"] },
+            { name: "Celine", rota: ["Monday","Saturday", "Sunday", "Tuesday", "Wednesday"] },
+            { name: "Ashleigh", rota: ["Monday","Thursday", "Sunday", "Tuesday", "Wednesday"] }
+        ]; 
+        expect(areWeCovered(staff,"Monday")).toBe(true);
+        expect(areWeCovered(staff,"Tuesday")).toBe(true);
+        expect(areWeCovered(staff,"Wednesday")).toBe(true);
+        expect(areWeCovered(staff,"Thursday")).toBe(false);
+        expect(areWeCovered(staff,"Friday")).toBe(false);
+        expect(areWeCovered(staff,"Saturday")).toBe(true);
+        expect(areWeCovered(staff,"Sunday")).toBe(true);
+    }); 
     
 });
