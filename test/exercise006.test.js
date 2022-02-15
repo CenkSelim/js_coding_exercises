@@ -3,7 +3,8 @@ const {
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
-  createMatrix
+  createMatrix,
+  areWeCovered
 } = require("../challenges/exercise006");
 
 
@@ -70,8 +71,18 @@ describe("createMatrix", () => {
         expect(() =>  createMatrix(1)).toThrow("fill is required");
     });
     test("it return true if a matrix of fill n x n", () => {
-        expect(createMatrix(1,"one")).toStrictEqual([["one"]]);
-        expect(createMatrix(2,"two")).toStrictEqual([["two","two"],["two","two"]]);
-        expect(createMatrix(3,"three")).toStrictEqual([["three","three","three"],["three","three","three"],["three","three","three"]]);
+        expect(createMatrix(1,"one")).toEqual([["one"]]);
+        expect(createMatrix(2,"two")).toEqual([["two","two"],["two","two"]]);
+        expect(createMatrix(3,"three")).toEqual([["three","three","three"],["three","three","three"],["three","three","three"]]);
     });
+});
+
+describe("areWeCovered", () => {
+    test("it throws an error if not passed staff", () => {
+        expect(() => areWeCovered()).toThrow("staff is required");
+    });
+    test("it throws an error if not passed day", () => {
+        expect(() => areWeCovered([{ name: "Sally", rota: ["Monday", "Tuesday", "Friday"]}])).toThrow("day is required");
+    });
+    
 });
