@@ -89,7 +89,7 @@ describe("findWinner", () => {
     test("it throws an error if not passed a board", () => {
         expect(() => findWinner()).toThrow("board is required");
     });
-    test("should return the RGB value of hexStr", () => {
+    test("should return null as no winner yet", () => {
         const noWinnerBoard = [
                                 ["X", "0", null],
                                 ["X", null, "0"],
