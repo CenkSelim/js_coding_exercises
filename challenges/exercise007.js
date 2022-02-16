@@ -88,7 +88,8 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
   if (!hexStr.match(/#[A-Fa-f0-9]{6}/g)) throw new Error("hexStr not in correct format");
-};
+  return "rgb(" + parseInt(hexStr.substring(1,3), 16)+ "," + parseInt(hexStr.substring(3,5), 16)+ "," + parseInt(hexStr.substring(5), 16)+")";
+}
 
 /**
  * This function takes a noughts and crosses board represented as an array, where an empty space is represented with null.

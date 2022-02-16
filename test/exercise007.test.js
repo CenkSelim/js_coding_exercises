@@ -77,5 +77,9 @@ describe("", () => {
     test("it throws an ehexToRGBrror if not passed a valid hexStr", () => {
         expect(() => hexToRGB("FFFFFF")).toThrow("hexStr not in correct format");
     });
-    
+    test("should return the RGB value of hexStr", () => {
+        expect(hexToRGB("#1502BE")).toBe("rgb(21,2,190)");
+        expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
+        expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
+    });
 });
