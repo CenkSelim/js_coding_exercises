@@ -103,6 +103,25 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  const WINNING_POSITIONS = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8]];
+  const X_PLAYER = "X";
+  const O_PLAYER = "0";
+  const NO_CURRENT_WINNER = null;
+  const xPositions = board.reduce(function(array, element, index) {
+                                    if (element === 'X')
+                                        array.push(index);
+                                    return array;
+                            }, []);
+
+  const oPositions = board.reduce(function(array, element, index) {
+                                    if (element === '0')
+                                        array.push(index);
+                                    return array;
+                            }, []);
+
+  if(xPositions.length < 3 && oPositions.length < 3) return NO_CURRENT_WINNER; 
+  
+  return NO_CURRENT_WINNER;
 };
 
 module.exports = {
