@@ -2,7 +2,8 @@ const {
     sumDigits,
     createRange,
     getScreentimeAlertList,
-    hexToRGB
+    hexToRGB,
+    findWinner
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -82,4 +83,11 @@ describe("", () => {
         expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
         expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
     });
+});
+
+describe("findWinner", () => {
+    test("it throws an error if not passed a board", () => {
+        expect(() => findWinner()).toThrow("board is required");
+    });
+    
 });
