@@ -87,6 +87,7 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  if (!hexStr.match(/#[A-Fa-f0-9]{6}/g)) throw new Error("hexStr not in correct format");
 };
 
 /**

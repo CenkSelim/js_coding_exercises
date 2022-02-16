@@ -74,5 +74,8 @@ describe("", () => {
     test("it throws an ehexToRGBrror if not passed a hexStr", () => {
         expect(() => hexToRGB()).toThrow("hexStr is required");
     });
+    test("it throws an ehexToRGBrror if not passed a valid hexStr", () => {
+        expect(() => hexToRGB("FFFFFF")).toThrow("hexStr not in correct format");
+    });
     
 });
