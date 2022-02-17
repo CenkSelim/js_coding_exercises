@@ -12,13 +12,14 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  return Math.round((originalPrice + (originalPrice * vatRate)/100)*100)/100;
+  //return Math.round((originalPrice + (originalPrice * vatRate)/100)*100)/100;
+  return Number((originalPrice + (originalPrice * vatRate)/100).toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  return Math.round((originalPrice - (originalPrice * reduction)/100)*100)/100;
+  return Number((originalPrice - (originalPrice * reduction)/100).toFixed(2));
 }
 
 function getMiddleCharacter(str) {
@@ -48,7 +49,7 @@ function countLinuxUsers(users) {
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  return Math.round((scores.reduce((a,b) => (a+b)) / scores.length)*100)/100;
+  return Number((scores.reduce((a,b) => (a+b)) / scores.length).toFixed(2));
 }
 
 function simpleFizzBuzz(n) {

@@ -48,7 +48,7 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
   const squareRoots = nums.map(function(item) {
-    return Math.round(Math.sqrt(item)*100)/100;
+    return Number(Math.sqrt(item).toFixed(2));
   });
   return squareRoots;
 }

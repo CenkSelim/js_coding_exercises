@@ -122,7 +122,7 @@ const findWinner = board => {
 
   if(xPositions.length < 3 && oPositions.length < 3) return winner; 
   
-  for(positions of WINNING_POSITIONS){
+  for(let positions of WINNING_POSITIONS){
     console.log(positions);
     if(positions.every(position => {return xPositions.indexOf(position) !== -1;})) winner=X_PLAYER;
     if(positions.every(position => {return oPositions.indexOf(position) !== -1;})) winner=O_PLAYER;
