@@ -97,5 +97,28 @@ describe("findWinner", () => {
                             ];
         expect(findWinner(noWinnerBoard)).toBe(null);
     });
-    
+    test("should return null as no winner", () => {
+        const noWinnerBoard = [
+                                ["0", "X", "0"],
+                                ["X", null, "0"],
+                                ["X", "0", "X"]
+                            ];
+        expect(findWinner(noWinnerBoard)).toBe(null);
+    });
+    test("should return X as winner", () => {
+        const xWinnerBoard = [
+                                ["X", "0", null],
+                                ["X", null, "0"],
+                                ["X", null, "0"]
+                            ];
+        expect(findWinner(xWinnerBoard)).toBe("X");
+    });
+    test("should return X as winner", () => {
+        const oWinnerBoard = [
+                                [null, "0", "0"],
+                                ["X", "X", "0"],
+                                ["X", null, "0"]
+                            ];
+        expect(findWinner(oWinnerBoard)).toBe("0");
+    });
 });

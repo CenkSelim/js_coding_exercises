@@ -107,21 +107,28 @@ const findWinner = board => {
   const X_PLAYER = "X";
   const O_PLAYER = "0";
   const NO_CURRENT_WINNER = null;
-  const xPositions = board.reduce(function(array, element, index) {
+  let winner = NO_CURRENT_WINNER;
+  const xPositions = board.flat().reduce(function(array, element, index) {
                                     if (element === 'X')
                                         array.push(index);
                                     return array;
                             }, []);
 
-  const oPositions = board.reduce(function(array, element, index) {
+  const oPositions = board.flat().reduce((array, element, index) => {
                                     if (element === '0')
                                         array.push(index);
                                     return array;
                             }, []);
 
-  if(xPositions.length < 3 && oPositions.length < 3) return NO_CURRENT_WINNER; 
+  if(xPositions.length < 3 && oPositions.length < 3) return winner; 
   
-  return NO_CURRENT_WINNER;
+  for(positions of WINNING_POSITIONS){
+    console.log(positions);
+    if(positions.every(position => {return xPositions.indexOf(position) !== -1;})) winner=X_PLAYER;
+    if(positions.every(position => {return oPositions.indexOf(position) !== -1;})) winner=O_PLAYER;
+    if(winner !== null) break;
+  }
+  return winner;
 };
 
 module.exports = {
