@@ -12,7 +12,6 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  //return Math.round((originalPrice + (originalPrice * vatRate)/100)*100)/100;
   return Number((originalPrice + (originalPrice * vatRate)/100).toFixed(2));
 }
 
@@ -44,7 +43,7 @@ function reverseAllWords(words) {
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  return users.filter(function (user) { return user.type === 'Linux'; }).length; 
+  return users.filter(user => user.type === 'Linux').length; 
 }
 
 function getMeanScore(scores) {

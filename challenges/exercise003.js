@@ -1,8 +1,6 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  let numsCopy = [...nums]; // so as not to update original
-  numsCopy.forEach((item, index) => numsCopy[index] = item * item );
-  return numsCopy;
+  return nums.map(n => n * n);
 }
 
 function camelCaseWords(words) {
@@ -28,7 +26,7 @@ function checkIngredients(menu, ingredient) {
         if (obj.ingredients.includes(ingredient)) counter += 1
         return counter;
         }, 0);
-  return count === 0 ? false : true;
+  return count !== 0;
 }
 
 function duplicateNumbers(arr1, arr2) {
@@ -40,7 +38,7 @@ function duplicateNumbers(arr1, arr2) {
       duplicates.push(i);
     } 
   });
-  return duplicates.sort();
+  return [... new Set(duplicates.sort())];
 }
 
 module.exports = {

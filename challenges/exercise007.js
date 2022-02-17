@@ -88,7 +88,7 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
   if (!hexStr.match(/#[A-Fa-f0-9]{6}/g)) throw new Error("hexStr not in correct format");
-  return "rgb(" + parseInt(hexStr.substring(1,3), 16)+ "," + parseInt(hexStr.substring(3,5), 16)+ "," + parseInt(hexStr.substring(5), 16)+")";
+  return "rgb(" + Number("0x"+hexStr.substring(1,3))+ "," + Number("0x"+hexStr.substring(3,5))+ "," + Number("0x"+hexStr.substring(5))+")";
 }
 
 /**
@@ -123,7 +123,6 @@ const findWinner = board => {
   if(xPositions.length < 3 && oPositions.length < 3) return winner; 
   
   for(let positions of WINNING_POSITIONS){
-    console.log(positions);
     if(positions.every(position => {return xPositions.indexOf(position) !== -1;})) winner=X_PLAYER;
     if(positions.every(position => {return oPositions.indexOf(position) !== -1;})) winner=O_PLAYER;
     if(winner !== null) break;
